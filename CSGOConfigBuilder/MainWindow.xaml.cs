@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace CSGOConfigBuilder
 {
@@ -27,7 +29,42 @@ namespace CSGOConfigBuilder
 
         private void CreateNewConfig_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello, World!");
+            CreateNewTextFile autoexec = new CreateNewTextFile();
+            autoexec.WriteText();
+            MessageBox.Show("Done");
+
+        }
+
+        private void FindConfig_Click(object sender, RoutedEventArgs e)
+        {
+
+            string installpath = getCSInstallPath();
+
+            OpenFileDialog openAeDialog = new OpenFileDialog();
+            openAeDialog.Filter = "Config Files|*.cfg";
+            openAeDialog.InitialDirectory = installpath;
+
+            if (openAeDialog.ShowDialog() == true)
+            {
+                txtConfigDir.Text = openAeDialog.FileName;
+            }
+
+ 
+        }
+
+        private string getCSInstallPath()
+        {
+            //returns string "installpath"
+            RegistryKey regKey = Registry.CurrentUser;
+            regKey = regKey.OpenSubKey(@"Software\Valve\Steam");
+            string installpath = "";
+            if (regKey != null)
+            {
+                installpath = regKey.GetValue("ModInstallPath").ToString();
+                installpath = installpath.Replace("Half-Life", "Counter-Strike Global Offensive");
+                installpath += "\\csgo\\cfg";
+            }
+            return installpath;
         }
     }
 }

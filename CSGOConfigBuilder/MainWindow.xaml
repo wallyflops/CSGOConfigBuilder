@@ -9,10 +9,15 @@
             <ColumnDefinition Width="61*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btn_CreateNewConfig" Content="Create New Config&#xD;&#xA;" HorizontalAlignment="Left" Margin="263,146,0,0" VerticalAlignment="Top" Width="142" Click="CreateNewConfig_Click" Height="23" Grid.Column="2"/>
+        <Button x:Name="btn_CreateNewConfig" Content="Create New Config&#xD;&#xA;" HorizontalAlignment="Left" Margin="275,287,0,0" VerticalAlignment="Top" Width="142" Click="CreateNewConfig_Click" Height="23" Grid.Column="2"/>
         <Button x:Name="btnFindConfig" Content="Search" HorizontalAlignment="Left" Margin="209,52,0,0" VerticalAlignment="Top" Width="128" Click="FindConfig_Click" Height="23" Grid.Column="2"/>
         <TextBox x:Name="txtConfigDir" HorizontalAlignment="Left" Height="23" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="334" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Label x:Name="lblFindDir" Content="Please select your Autoexec.cfg" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="185" Grid.ColumnSpan="2"/>
+        <CheckBox x:Name="chkJumpThrow" Content="Jump Throw" HorizontalAlignment="Left" Margin="93,118,0,0" VerticalAlignment="Top" Grid.Column="1" Width="87" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtJumpThrowKeyToBind" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="25" Margin="20,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
+        <Label Content="Key" Grid.Column="1" HorizontalAlignment="Left" Margin="20,82,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="CheckBox" Grid.Column="1" HorizontalAlignment="Left" Margin="93,151,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="20,148,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="58"/>
 
     </Grid>
 </Window>

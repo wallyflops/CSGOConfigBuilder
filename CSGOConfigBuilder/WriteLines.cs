@@ -4,29 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows;
+
 
 namespace CSGOConfigBuilder
 {
     class CreateNewTextFile
     {
-        public string WriteText()
+        public string WriteText(string configFile, string keyToBind, bool includeJumpThrowBind)
         {
-            string labelMsg = "//Inserted by generator";
-            StreamWriter ae = new StreamWriter("C:\\Users\\James\\Desktop\\testing\\autoexec.txt", true);
-            ae.WriteLine("{0}", labelMsg);
-            ae.WriteLine("alias \"+jumpthrow\" \"+jump;-attack");
-            ae.WriteLine("alias \"-jumpthrow\" \"-jump\"");
-            ae.WriteLine("bind \"z\" \"+jumpthrow\"");
-
-            ae.Close();
-
+            if (includeJumpThrowBind)
+            {
+                string labelMsg = "//Jump throw bind";
+                //TODO make an exception handler for this if it doesn't recieve a configFile
+                StreamWriter ae = new StreamWriter(configFile, true);
+                ae.WriteLine("{0}", labelMsg);
+                ae.WriteLine("alias \"+jumpthrow\" \"+jump;-attack");
+                ae.WriteLine("alias \"-jumpthrow\" \"-jump\"");
+                ae.WriteLine("bind \"{0}\" \"+jumpthrow\"", keyToBind);
+                ae.Close();
+            }
+            
             return ("Completed");
 
-            /*
-           alias "+jumpthrow" "+jump;-attack"
-alias "-jumpthrow" "-jump"
-bind "z" "+jumpthrow"
-            */
         }
     }
 }

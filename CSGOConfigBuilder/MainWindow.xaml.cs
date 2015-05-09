@@ -22,6 +22,8 @@ namespace CSGOConfigBuilder
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool isJumpThrowChecked { get; set; }
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -29,8 +31,12 @@ namespace CSGOConfigBuilder
 
         private void CreateNewConfig_Click(object sender, RoutedEventArgs e)
         {
+            string configFile = txtConfigDir.Text;
+            string keyToBind = txtJumpThrowKeyToBind.Text;
+
             CreateNewTextFile autoexec = new CreateNewTextFile();
-            autoexec.WriteText();
+            autoexec.WriteText(configFile, keyToBind, isJumpThrowChecked);
+
             MessageBox.Show("Done");
 
         }
@@ -65,6 +71,11 @@ namespace CSGOConfigBuilder
                 installpath += "\\csgo\\cfg";
             }
             return installpath;
+        }
+
+        private void chkJumpThrow_Checked(object sender, RoutedEventArgs e)
+        {
+            isJumpThrowChecked = chkJumpThrow.IsChecked.Value;
         }
     }
 }

@@ -1,0 +1,9 @@
+﻿<Window x:Class="CSGOConfigBuilder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="btn_CreateNewConfig" Content="Create New Config&#xD;&#xA;" HorizontalAlignment="Left" Margin="352,276,0,0" VerticalAlignment="Top" Width="142" Click="CreateNewConfig_Click" Height="23"/>
+
+    </Grid>
+</Window>
